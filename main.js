@@ -1,8 +1,13 @@
 const express = require('express');
+const contactApi = require('./api/router/contact');
 
 const app = express();
 
 const PORT = process.env.PORT || 3000;
+
+
+app.use('api/contacts', contactApi)
+
 
 app.get('/', (req, res) =>{
 
@@ -14,15 +19,15 @@ app.get('/', (req, res) =>{
     `)
 });
 
-app.get('/post', (req, res) =>{
+// app.get('/post', (req, res) =>{
 
-    res.send('<h1>Hello this is post page here</h1>')
-});
+//     res.send('<h1>Hello this is post page here</h1>')
+// });
 
-app.get('/product', (req, res) =>{
+// app.get('/product', (req, res) =>{
 
-    res.send('<h1>Here there are huge amount product available here</h1>')
-})
+//     res.send('<h1>Here there are huge amount product available here</h1>')
+// });
 
 app.listen(PORT, () => {
 
