@@ -12,9 +12,14 @@ router.get('/', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
 
+    const name = req.body.name;
+    const email = req.body.email;
+
     res.status(200).json({
 
-        message : 'Hello, i am get.This is jason message from router dot contact info'
+        message : 'Hello, i am get.This is jason message from router dot contact info',
+        name,
+        email
 
     });
 });

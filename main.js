@@ -1,10 +1,21 @@
 const express = require('express');
-const contactApi = require('./api/router/contact');
+const morgan = require('morgan');
+const bodyParse = require('body-parser');
 
+
+const contactApi = require('./api/router/contact');
 const app = express();
+app.use(morgan('dev'));
+app.use(bodyParse.urlencoded({extended : true}));
+app.use(bodyParse.json());
 
 const PORT = process.env.PORT || 3000;
 
+// app.use((req, res, next) => {
+
+//     console.log('I am a middleware function');
+//     next();
+// });
 
 app.use('api/contacts', contactApi)
 
